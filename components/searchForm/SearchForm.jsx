@@ -1,15 +1,15 @@
-import Image from "next/image";
-import styles from './SearchForm.module.css'
-import searchIcon from '../../public/frame12.svg'
-import clearIcon from '../../public/clearIcon.svg'
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
+import Image from "next/image";
+import searchIcon from '../../public/frame12.svg'
+import clearIcon from '../../public/clearIcon.svg'
+
+import styles from './SearchForm.module.css'
 
 export const SearchForm = () => {
     const router = useRouter();
-    const { query } = router.query;
+    const { basePath, query } = router;
     const [inputValue, setInputValue] = useState('');
-
     useEffect(() => {
         if (query !== null) {
             autoChange(query);
@@ -21,18 +21,15 @@ export const SearchForm = () => {
     const handleChange = (event) => {
         setInputValue(event.target.value);
     };
-
     const handleSearch = () => {
         if (inputValue.trim()) {
             router.push(`/?query=${encodeURIComponent(inputValue)}`);
         }
     }
-
     const handleClear = () => {
         setInputValue('')
         router.push(`/`);
     }
-
     const handleSubmit = (event) => {
         event.preventDefault();
         handleSearch();
@@ -42,7 +39,7 @@ export const SearchForm = () => {
         <div className={styles.root}>
             <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.formBlock}>
-                    <Image className={styles.searchIcon} src={searchIcon} alt={'searchIcon'} />
+                    <Image className={styles.searchIcon} src={`${basePath}${searchIcon}`} alt={'searchIcon'} />
                     <input
                         type='text'
                         placeholder="Телефоны, яблоки, груши..."
@@ -50,7 +47,7 @@ export const SearchForm = () => {
                         onChange={handleChange}
                         value={inputValue}
                     />
-                    {inputValue && <Image src={clearIcon} onClick={handleClear} className={styles.clearIcon} alt={'clearIcon'}/>}
+                    {inputValue && <Image src={`${basePath}${clearIcon}`} onClick={handleClear} className={styles.clearIcon} alt={'clearIcon'}/>}
                 </div>
                 <button type='submit' className={styles.button}>Искать</button>
             </form>
