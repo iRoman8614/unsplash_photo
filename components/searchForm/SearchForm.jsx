@@ -1,14 +1,15 @@
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import Image from "next/image";
-import searchIcon from '../../public/frame12.svg'
-import clearIcon from '../../public/clearIcon.svg'
+import searchIcon from '../../public/searchIcon.png'
+import clearIcon from '../../public/clearIcon.png'
 
 import styles from './SearchForm.module.css'
 
 export const SearchForm = () => {
     const router = useRouter();
-    const { basePath, query } = router;
+    const { query } = router.query;
+    const { basePath = '' } = router.basePath;
     const [inputValue, setInputValue] = useState('');
     useEffect(() => {
         if (query !== null) {
@@ -39,7 +40,7 @@ export const SearchForm = () => {
         <div className={styles.root}>
             <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.formBlock}>
-                    <Image className={styles.searchIcon} src={`${basePath}${searchIcon}`} alt={'searchIcon'} />
+                    <Image className={styles.searchIcon} src={`${basePath}/searchIcon.png`} width={24} height={24} alt={'searchIcon'} />
                     <input
                         type='text'
                         placeholder="Телефоны, яблоки, груши..."
@@ -47,7 +48,7 @@ export const SearchForm = () => {
                         onChange={handleChange}
                         value={inputValue}
                     />
-                    {inputValue && <Image src={`${basePath}${clearIcon}`} onClick={handleClear} className={styles.clearIcon} alt={'clearIcon'}/>}
+                    {inputValue && <Image src={`${basePath}/clearIcon.png`} onClick={handleClear} className={styles.clearIcon} width={32} height={32} alt={'clearIcon'}/>}
                 </div>
                 <button type='submit' className={styles.button}>Искать</button>
             </form>

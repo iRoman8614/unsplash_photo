@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    output: 'export',
     reactStrictMode: true,
     images: {
         domains: ['images.unsplash.com'],
@@ -8,7 +9,13 @@ const nextConfig = {
     basePath: '/unsplash_photo',
     assetPrefix: '/unsplash_photo/',
     trailingSlash: true,
-    output: 'export',
+    webpack(config) {
+        config.module.rules.push({
+            test: /\.svg$/,
+            use: ['@svgr/webpack'],
+        });
+        return config;
+    },
 };
 
 export default nextConfig;
