@@ -9,7 +9,7 @@ import styles from './SearchForm.module.css'
 export const SearchForm = () => {
     const router = useRouter();
     const { query } = router.query;
-    const { basePath = '' } = router.basePath;
+    const { basePath } = router;
     console.log('basePath', basePath)
     const [inputValue, setInputValue] = useState('');
     useEffect(() => {
