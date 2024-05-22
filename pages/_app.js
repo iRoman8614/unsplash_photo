@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import { useRouter } from 'next/router';
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -12,7 +13,8 @@ const queryClient = new QueryClient({
     },
 });
 
-const  App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }) => {
+    const { basePath } = useRouter();
     return (
         <QueryClientProvider client={queryClient}>
             <Component {...pageProps} />
