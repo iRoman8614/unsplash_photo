@@ -3,7 +3,7 @@ const nextConfig = {
     reactStrictMode: true,
     images: {
         domains: ['images.unsplash.com'],
-        unoptimized: trueб
+        unoptimized: true,
     },
     basePath: '/unsplash_photo',
     assetPrefix: '/unsplash_photo/',
