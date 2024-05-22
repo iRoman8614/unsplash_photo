@@ -10,6 +10,7 @@ export const SearchForm = () => {
     const router = useRouter();
     const { query } = router.query;
     const { basePath = '' } = router.basePath;
+    console.log('basePath', basePath)
     const [inputValue, setInputValue] = useState('');
     useEffect(() => {
         if (query !== null) {
