@@ -6,8 +6,8 @@ const nextConfig = {
         domains: ['images.unsplash.com'],
         unoptimized: true,
     },
-    basePath: '/unsplash_photo',
-    assetPrefix: '/unsplash_photo/',
+    //basePath: '/unsplash_photo',
+    //assetPrefix: '/unsplash_photo/',
     trailingSlash: true,
     webpack(config) {
         config.module.rules.push({

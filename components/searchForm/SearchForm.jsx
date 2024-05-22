@@ -8,15 +8,18 @@ import styles from './SearchForm.module.css'
 
 export const SearchForm = () => {
     const router = useRouter();
-    const { query } = router.query;
-    const { basePath } = router;
+    const {query} = router.query;
+    const {basePath = ''} = router.basePath || '';
+    console.log('query', query)
     console.log('basePath', basePath)
     const [inputValue, setInputValue] = useState('');
+
     useEffect(() => {
         if (query !== null) {
             autoChange(query);
         }
     }, [query]);
+
     const autoChange = (value) => {
         setInputValue(value)
     }
