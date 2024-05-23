@@ -1,13 +1,11 @@
 import {useState} from "react";
 import Image from "next/image";
-import {useRouter} from "next/router";
 import clearIcon from '../../public/clearIcon.png';
 
 import styles from './ResultGridElement.module.css';
 
 export const ResultGridElement = ({ imageUrlSmall, imageUrlFull }) => {
     const [expanded, setExpanded] = useState(false);
-    //const { basePath = '' } = useRouter();
     const openImage = () => {
         setExpanded(true);
     };

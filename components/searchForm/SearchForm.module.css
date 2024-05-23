@@ -18,6 +18,7 @@
 .searchIcon{
     position: absolute;
     margin-left: 8px;
+    padding: 4px;
 }
 
 .clearIcon {

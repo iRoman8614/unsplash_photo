@@ -27,7 +27,7 @@
 .bigImg {
     position: fixed;
     border: 1px solid #E6E6E6;
-    top: 40px;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
     max-width: 390px;
@@ -53,6 +53,7 @@
     }
 
     .bigImg {
+        top: 40px;
         max-width: 760px;
         max-height: 760px;
     }
