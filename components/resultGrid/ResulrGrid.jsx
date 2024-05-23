@@ -48,7 +48,7 @@ export const ResultGrid = () => {
         setItems([]);
         let totalPages = 1;
         const itemsPerPage = 10;
-        const itemsInViewport = Math.ceil(window.innerHeight / 300) * (window.innerWidth <= 950 ? 3 : 6);
+        const itemsInViewport = Math.ceil(window.innerHeight / 100) * (window.innerWidth <= 950 ? 3 : 6);
         while (totalPages <= Math.ceil(itemsInViewport / itemsPerPage)) {
             try {
                 await fetchNextPage({ pageParam: totalPages });
