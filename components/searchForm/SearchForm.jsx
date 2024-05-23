@@ -9,9 +9,7 @@ import styles from './SearchForm.module.css'
 export const SearchForm = () => {
     const router = useRouter();
     const {query} = router.query;
-    const {basePath = ''} = router.basePath || '';
-    console.log('query', query)
-    console.log('basePath', basePath)
+    //const {basePath = ''} = router.basePath || '';
     const [inputValue, setInputValue] = useState('');
 
     useEffect(() => {
@@ -44,7 +42,7 @@ export const SearchForm = () => {
         <div className={styles.root}>
             <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.formBlock}>
-                    <Image className={styles.searchIcon} src={`${basePath}/searchIcon.png`} width={24} height={24} alt={'searchIcon'} />
+                    <Image className={styles.searchIcon} src={searchIcon} width={24} height={24} alt={'searchIcon'} />
                     <input
                         type='text'
                         placeholder="Телефоны, яблоки, груши..."
@@ -52,7 +50,7 @@ export const SearchForm = () => {
                         onChange={handleChange}
                         value={inputValue}
                     />
-                    {inputValue && <Image src={`${basePath}/clearIcon.png`} onClick={handleClear} className={styles.clearIcon} width={32} height={32} alt={'clearIcon'}/>}
+                    {inputValue && <Image src={clearIcon} onClick={handleClear} className={styles.clearIcon} width={32} height={32} alt={'clearIcon'}/>}
                 </div>
                 <button type='submit' className={styles.button}>Искать</button>
             </form>
